@@ -1,0 +1,29 @@
+<!-- src/app/pages/bid-calculator/bid-calculator.component.html -->
+<div class="container">
+    <h1>Bid Calculation</h1>
+    <form [formGroup]="bidForm">
+        <div class="form-group">
+            <label for="basePrice">Vehicle Base Price</label>
+            <input id="basePrice" type="number" formControlName="basePrice" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="vehicleType">Vehicle Type</label>
+            <select id="vehicleType" formControlName="vehicleType" class="form-control">
+                <option [value]="VehicleType.Common">Common</option>
+                <option [value]="VehicleType.Luxury">Luxury</option>
+            </select>
+        </div>
+    </form>
+
+    <div class="fees">
+        <h2>Fees</h2>
+        <p>Basic Fee: {{ fees.basic | currency }}</p>
+        <p>Special Fee: {{ fees.special | currency }}</p>
+        <p>Association Fee: {{ fees.association | currency }}</p>
+        <p>Storage Fee: {{ fees.storage | currency }}</p>
+    </div>
+
+    <div class="total-cost">
+        <h2>Total Cost: {{ totalCost | currency }}</h2>
+    </div>
+</div>
